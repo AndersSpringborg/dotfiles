@@ -2,12 +2,12 @@
 
 logDotfiles "Initilizing functions";
 
-declare -a dotfilesFunctions=()
+dotfilesFunctions=()
 
 function appendFunction(){
     echo -e "--> \e[94mfunction $1 intialiased\e[39m";
 
-	dotfilesFunctions+=( $1,$2 )
+	dotfilesFunctions+=( "$1" "$2" );
 }
 
 appendFunction "mkd" "Create a new directory and enter it";
@@ -45,7 +45,7 @@ function dataurl() {
 	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
 }
 
-## Start an HTTP server from a directory, optionally specifying the port (Python)
+appendFunction "server" "Start an HTTP server from a directory, optionally specifying the port (Python)";
 function server() {
 	local port="${1:-8000}";
 	sleep 1 && open "http://localhost:${port}/" &
@@ -55,8 +55,7 @@ function server() {
 }
 
 
-# Show all the names (CNs and SANs) listed in the SSL certificate
-# for a given domain
+appendFunction "getcertnames" "Show all the names (CNs and SANs) listed in the SSL certificate for a given domain";
 function getcertnames() {
 	if [ -z "${1}" ]; then
 		echo "ERROR: No domain specified.";
@@ -99,7 +98,7 @@ if [ ! $(uname -s) = 'Darwin' ]; then
 	fi;
 fi;
 
-appendFunction "tre" "\"tre\" is a shorthand for \"tree\" with hidden files and color enabled";
+appendFunction "tre" "\"tree\" with hidden files and color enabled";
 # ignoring the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
@@ -107,10 +106,12 @@ function tre() {
     tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
-appendFunction "functions" "List all functions";
+appendFunction "functions" "show all functions";
 function functions(){
-	for idx in ${!dotfilesFunctions[@]}; do 
-		echo "${dotfilesFunctions[${idx}]}";
+	for ((i=0; i<${#dotfilesFunctions[@]}; i+=2)); do
+  		func_name="${dotfilesFunctions[i]}";
+		desc="${dotfilesFunctions[i+1]}";
+		printf "\e[94m%-14s \e[39m %s\n" "$func_name" "$desc";
 	done
 }
 
