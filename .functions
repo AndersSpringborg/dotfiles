@@ -1,11 +1,21 @@
 #!/usr/bin/env bash
 
-# Create a new directory and enter it
+logDotfiles "Initilizing functions";
+
+declare -a dotfilesFunctions=()
+
+function appendFunction(){
+    echo -e "--> \e[94mfunction $1 intialiased\e[39m";
+
+	dotfilesFunctions+=( $1,$2 )
+}
+
+appendFunction "mkd" "Create a new directory and enter it";
 function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
-# Determine size of a file or total size of a directory
+appendFunction "fs" "Determine size of a file or total size of a directory";
 function fs() {
 	if du -b /dev/null > /dev/null 2>&1; then
 		local arg=-sbh;
@@ -18,7 +28,6 @@ function fs() {
 		du $arg .[^.]* ./*;
 	fi;
 }
-
 # Use Git’s colored diff when available
 hash git &>/dev/null;
 if [ $? -eq 0 ]; then
@@ -27,7 +36,7 @@ if [ $? -eq 0 ]; then
 	}
 fi;
 
-## Create a data URL from a file
+appendFunction "dataurl" "Create a data URL from a file";
 function dataurl() {
 	local mimeType=$(file -b --mime-type "$1");
 	if [[ $mimeType == text/* ]]; then
@@ -55,8 +64,7 @@ function getcertnames() {
 	fi;
 
 	local domain="${1}";
-	echo "Testing ${domain}…";
-	echo ""; # newline
+	echo "Testing ${domain}…\n";
 
 	local tmp=$(echo -e "GET / HTTP/1.0\nEOT" \
 		| openssl s_client -connect "${domain}:443" -servername "${domain}" 2>&1);
@@ -78,7 +86,7 @@ function getcertnames() {
 		echo "ERROR: Certificate not found.";
 		return 1;
 	fi;
-#}
+}
 
 # Normalize `open` across Linux, macOS, and Windows.
 # This is needed to make the `o` function (see below) cross-platform.
@@ -88,23 +96,22 @@ if [ ! $(uname -s) = 'Darwin' ]; then
 		alias open='explorer.exe';
 	else
 		alias open='xdg-open';
-	fi
-fi
-
-# `o` with no arguments opens the current directory, otherwise opens the given
-# location
-function o() {
-	if [ $# -eq 0 ]; then
-		open .;
-	else
-		open "$@";
 	fi;
-}
+fi;
 
-## `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
-## the `.git` directory, listing directories first. The output gets piped into
-## `less` with options to preserve color and line numbers, unless the output is
-## small enough for one screen.
+appendFunction "tre" "\"tre\" is a shorthand for \"tree\" with hidden files and color enabled";
+# ignoring the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
 function tre() {
     tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+appendFunction "functions" "List all functions";
+function functions(){
+	for idx in ${!dotfilesFunctions[@]}; do 
+		echo "${dotfilesFunctions[${idx}]}";
+	done
+}
+
+unset logFunctions;
