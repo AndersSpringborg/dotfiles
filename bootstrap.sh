@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+git pull origin master
+
 function moveDotfilesToHome() {
     home=~;
     rsync \
@@ -13,11 +15,22 @@ function moveDotfilesToHome() {
         # regex for ".any"
 }
 
+function sourceFiles() {
+    for sh_file in [A-z_-]*.sh; do
+        if [ "$sh_file" != "bootstrap.sh" ]; then
+            echo "${sh_file}";
+        fi;
+    done;
+}
+
+
 
 read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
 echo "";
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     moveDotfilesToHome;
+    sourceFiles;
 fi;
 
 unset moveDotfilesToHome;
+unset sourceFiles;
