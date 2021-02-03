@@ -29,6 +29,7 @@ read -p "This may overwrite existing files in your home directory. Are you sure?
 echo "";
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     moveDotfilesToHome;
+    source ~/.bash_profile;
     sourceFiles;
 fi;
 
