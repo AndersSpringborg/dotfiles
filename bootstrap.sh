@@ -18,7 +18,7 @@ function moveDotfilesToHome() {
 function sourceFiles() {
     for sh_file in [A-z_-]*.sh; do
         if [ "$sh_file" != "bootstrap.sh" ]; then
-            echo "${sh_file}";
+            source $sh_file;
         fi;
     done;
 }
