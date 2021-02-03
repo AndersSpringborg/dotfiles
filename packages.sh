@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+logDotfiles "Installing packages";
+
 list_of_apt_packages=(
     git #git repo
     vim
@@ -9,6 +11,6 @@ list_of_apt_packages=(
 )
 
 for package in ${list_of_apt_packages[@]}; do
-    echo -e "\e[32m[Installing $package] \e[39m"
+    echo -e "\e[96m--> Installing $package\e[39m";
     sudo apt install $package -y
 done

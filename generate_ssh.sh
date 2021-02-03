@@ -1,8 +1,10 @@
 
-FILE=~/.ssh/id_ed25519
+sshFILE=~/.ssh/id_ed25519
 
-if test -f "$FILE"; then
-    echo "The ssh key:$FILE exists.";
+logDotfiles "Generating ssh key";
+
+if test -f "$sshFILE"; then
+    echo "The ssh key:$sshFILE exists.";
 else
     ssh-keygen -t ed25519 -C "aaspringborg@gmail.com" ;
     eval "$(ssh-agent -s)" ;# start the ssh agent in the background
@@ -12,5 +14,4 @@ else
     read -p "Press enter to continue";
 fi;
 
-unset $FILE
-
+unset $sshFile

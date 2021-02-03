@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
-
 git pull origin master
+
+function logDotfiles(){
+    echo -e "\e[32m[$1] \e[39m"
+}
+
+logDotfiles "Starting dotfiles install";
 
 function moveDotfilesToHome() {
     home=~;
@@ -33,5 +38,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     sourceFiles;
 fi;
 
+logDotfiles "Finishing dotfiles install";
+
+
 unset moveDotfilesToHome;
 unset sourceFiles;
+unset logDotfiles;
