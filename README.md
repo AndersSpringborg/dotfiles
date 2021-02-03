@@ -1,6 +1,11 @@
 # Welcome
 This is my dotifles repo
-## config
+
+## Install
+To install the these dotfiles
+`source bootstrap.sh`
+
+## Config
 It is based on ubuntu
 Specs
     - Desktop envirorment: Gnome 3
