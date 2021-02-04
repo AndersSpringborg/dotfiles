@@ -40,8 +40,8 @@ function sourceSetupFiles() {
 }
 
 
-
-read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
+logStatus "This may overwrite existing files in your home directory. Are you sure? (y/n)"
+read -p "" -n 1;
 echo "";
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     moveDotfilesToHome;

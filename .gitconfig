@@ -164,3 +164,6 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+[user]
+	name = Anders Aaen Springborg
+	email = aaspringborg@gmail.com
