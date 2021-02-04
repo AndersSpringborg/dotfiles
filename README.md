@@ -11,4 +11,6 @@ Specs
     - Desktop envirorment: Gnome 3
     - Window manager: Mutter
     - Shell: Bash 5.0
+## packages included
+    - Thefuck link
     

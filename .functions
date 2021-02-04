@@ -1,22 +1,18 @@
 #!/usr/bin/env bash
 
-logDotfiles "Initilizing functions";
-
 dotfilesFunctions=()
 
-function appendFunction(){
-    echo -e "--> \e[94mfunction $1 intialiased\e[39m";
-
+appendFunction(){
 	dotfilesFunctions+=( "$1" "$2" );
 }
 
 appendFunction "mkd" "Create a new directory and enter it";
-function mkd() {
+mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
 appendFunction "fs" "Determine size of a file or total size of a directory";
-function fs() {
+fs() {
 	if du -b /dev/null > /dev/null 2>&1; then
 		local arg=-sbh;
 	else
@@ -31,13 +27,13 @@ function fs() {
 # Use Git’s colored diff when available
 hash git &>/dev/null;
 if [ $? -eq 0 ]; then
-	function diff() {
+	diff() {
 		git diff --no-index --color-words "$@";
 	}
 fi;
 
 appendFunction "dataurl" "Create a data URL from a file";
-function dataurl() {
+dataurl() {
 	local mimeType=$(file -b --mime-type "$1");
 	if [[ $mimeType == text/* ]]; then
 		mimeType="${mimeType};charset=utf-8";
@@ -46,7 +42,7 @@ function dataurl() {
 }
 
 appendFunction "server" "Start an HTTP server from a directory, optionally specifying the port (Python)";
-function server() {
+server() {
 	local port="${1:-8000}";
 	sleep 1 && open "http://localhost:${port}/" &
 	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
@@ -56,7 +52,7 @@ function server() {
 
 
 appendFunction "getcertnames" "Show all the names (CNs and SANs) listed in the SSL certificate for a given domain";
-function getcertnames() {
+getcertnames() {
 	if [ -z "${1}" ]; then
 		echo "ERROR: No domain specified.";
 		return 1;
@@ -102,13 +98,13 @@ appendFunction "tre" "\"tree\" with hidden files and color enabled";
 # ignoring the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
-function tre() {
+tre() {
     tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
 appendFunction "functions" "show all functions";
-function functions(){
-	for ((i=0; i<${#dotfilesFunctions[@]}; i+=2)); do
+functions(){
+	for ((i=0; i<"${#dotfilesFunctions[@]}"; i+=2)); do
   		func_name="${dotfilesFunctions[i]}";
 		desc="${dotfilesFunctions[i+1]}";
 		printf "\e[94m%-14s \e[39m %s\n" "$func_name" "$desc";

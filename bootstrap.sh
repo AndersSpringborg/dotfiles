@@ -1,13 +1,23 @@
 #!/usr/bin/env bash
-git pull origin master
 
-function logDotfiles(){
-    echo -e "\e[32m[$1] \e[39m"
+# Logging.
+logFile(){
+    printf "\e[32m[$1] \e[39m\n"
 }
 
-logDotfiles "Starting dotfiles install";
+logStatus(){
+    printf " \e[96m~$1~\e[39m\n"
+}
 
-function moveDotfilesToHome() {
+logInfo(){
+    printf "  \e[94m$1\e[39m\n"
+}
+
+logFile "Starting dotfiles install";
+
+git pull origin master
+
+moveDotfilesToHome() {
     home=~;
     rsync \
         --exclude ".git/" \
@@ -20,10 +30,11 @@ function moveDotfilesToHome() {
         # regex for ".any"
 }
 
-function sourceFiles() {
+function sourceSetupFiles() {
     for sh_file in [A-z_-]*.sh; do
         if [ "$sh_file" != "bootstrap.sh" ]; then
-            source $sh_file;
+            logFile "$sh_file"
+            source "$sh_file";
         fi;
     done;
 }
@@ -34,13 +45,15 @@ read -p "This may overwrite existing files in your home directory. Are you sure?
 echo "";
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     moveDotfilesToHome;
+    sourceSetupFiles;
     source ~/.bash_profile;
-    sourceFiles;
 fi;
 
-logDotfiles "Finishing dotfiles install";
+logFile "Finishing dotfiles install";
 
 
 unset moveDotfilesToHome;
-unset sourceFiles;
-unset logDotfiles;
+unset sourceSetupFiles;
+unset logFile;
+unset logStatus;
+unset logInfo;

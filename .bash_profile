@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
 
-
-
-logDotfiles "Loading dotfiles";
 # Load the shell dotfiles:
 for file in ~/.{aliases,bash_prompt,exports,functions}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
 
-logDotfiles "Configuring bash profile";
-
+# Enabeling bash options.
 OPTIONS=(
     "autocd"   # autocd, e.g. **/qux will enter ./foo/bar/baz/qux
     "globstar" # Recursive globbing, e.g. "echo **/*.txt"
@@ -19,13 +15,12 @@ OPTIONS=(
     "histappend"  # Append to the Bash history file, rather than overwriting it
 )
 for option in ${OPTIONS[@]}; do
-    echo -e "--> $option \t\e[32mON\e[39m";
 	shopt -s "$option" > /dev/null;
 done;
 unset $OPTIONS;
 
 
-## FUCK support
+## FUCK support (github thefuck)
 eval "$(thefuck --alias)"
 
 # Add tab completion for many Bash commands
