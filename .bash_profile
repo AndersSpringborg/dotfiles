@@ -7,6 +7,7 @@ done;
 unset file;
 
 # Enabeling bash options.
+# https://www.computerhope.com/unix/bash/shopt.htm
 OPTIONS=(
     "autocd"   # autocd, e.g. **/qux will enter ./foo/bar/baz/qux
     "globstar" # Recursive globbing, e.g. "echo **/*.txt"
@@ -18,7 +19,6 @@ for option in ${OPTIONS[@]}; do
 	shopt -s "$option" > /dev/null;
 done;
 unset $OPTIONS;
-
 
 ## FUCK support (github thefuck)
 eval "$(thefuck --alias)"
