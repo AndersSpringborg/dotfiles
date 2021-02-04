@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-logInfo "Installing packages";
+logStatus "Installing packages";
 
 list_of_apt_packages=(
     git #git repo
@@ -12,7 +12,7 @@ list_of_apt_packages=(
 )
 
 for package in ${list_of_apt_packages[@]}; do
-    logInfo "\e[96mInstalling $package\e[39m";
+    logInfo "Installing $package";
     sudo apt install $package -y
 done
 
