@@ -9,12 +9,25 @@ list_of_apt_packages=(
     xclip #clipbaord tool
     ibus-typing-booster # predicts word when you write them (i use it for emojis)
     curl
+    npm
+    gcc
+    g++
+    make
+    libportaudio2
 )
 
 for package in ${list_of_apt_packages[@]}; do
     logInfo "Installing $package";
     sudo apt install $package -y
 done
+
+installNode(){
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+    sudo apt-get install -y nodejs
+}
+logStatus "Installing Node"
+installNode;
+unset installNode;
 
 installSpotify(){
     logInfo "Adding Spotifies repository"
