@@ -70,3 +70,6 @@ alias path='echo -e ${PATH//:/\\n}'
 
 #cpu speed linux
 alias cpuinfo="grep -E '^model name|^cpu MHz' /proc/cpuinfo"
+
+# Copy file to clipboard
+alias cb="xclip -i -selection clipboard -t text/uri-list"
