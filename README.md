@@ -14,11 +14,12 @@ Specs
 ## packages included
     - Thefuck link
     
+## Todo
+[] make --first-install argument
 
-make --first-install argument
+[] install docker
+[] Fix docker compose in install
 
-install docker
-
-Fix docker compose in install
-sudo curl -L "https://github.com/docker/compose/releases/download/1.28.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+> sudo curl -L "https://github.com/docker/compose/releases/download/1.28.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
