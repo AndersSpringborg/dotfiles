@@ -29,4 +29,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 [] intsall code
 [] install toolbo
 [] spotify ask if i want to continu
+[] install the fuck -> the if else condition do not work
+[] install slack
+[] add guide for keyboard setup with typebooster
 
+[] Add some documentation to print functions
