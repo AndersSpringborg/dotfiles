@@ -23,3 +23,10 @@ Specs
 > sudo curl -L "https://github.com/docker/compose/releases/download/1.28.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
+[] install xclip before ssh keygen
+[] ssh make rsa
+[] install chrome
+[] intsall code
+[] install toolbo
+[] spotify ask if i want to continu
+
