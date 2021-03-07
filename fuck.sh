@@ -7,5 +7,5 @@ if ! command -v COMMAND &> /dev/null; then
 else
     sudo apt update;
     sudo apt install python3-dev python3-pip python3-setuptools -y;
-    sudo pip3 install thefuck;
+    pip3 install thefuck;
 fi;
