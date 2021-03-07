@@ -73,3 +73,6 @@ alias cpuinfo="grep -E '^model name|^cpu MHz' /proc/cpuinfo"
 
 # Copy file to clipboard
 alias cb="xclip -i -selection clipboard"
+
+#Share scrren with vlc
+alias screenshare='vlc screen:// :screen-fps=30.000000 :live-caching=300 :screen-width=1920 :screen-height=1080 :screen-top=574'
