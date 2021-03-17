@@ -15,7 +15,21 @@ list_of_apt_packages=(
     make
     libportaudio2
     chrome-gnome-shell # For gnome extentions in chrome
+    python3-venv
 )
+
+list_of_all_wget_packages=(
+    https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 # vscode
+    https://downloads.slack-edge.com/linux_releases/slack-desktop-4.13.0-amd64.deb # slack
+)
+
+## do somehitng like
+for package in ${list_of_apt_packages[@]}; do
+    logInfo "Installing $package";
+    logInfo "not implemented"
+    #wget $package
+    #sudo apt install ./$package -y
+done
 
 for package in ${list_of_apt_packages[@]}; do
     logInfo "Installing $package";
