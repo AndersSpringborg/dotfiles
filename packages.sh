@@ -3,7 +3,6 @@
 logStatus "Installing packages";
 
 list_of_apt_packages=(
-    git #git repo
     vim
     tree
     xclip #clipbaord tool
@@ -15,6 +14,7 @@ list_of_apt_packages=(
     make
     libportaudio2
     python3-venv
+    chrome-gnome-shell
 )
 
 list_of_all_wget_packages=(
@@ -22,11 +22,16 @@ list_of_all_wget_packages=(
     https://downloads.slack-edge.com/linux_releases/slack-desktop-4.13.0-amd64.deb # slack
 )
 
+list_of_snap_pcakages=(
+    vlc
+)
+
 ## do somehitng like
 for package in ${list_of_apt_packages[@]}; do
     logInfo "Installing $package";
     logInfo "not implemented"
     #wget $package
+    # google tmp folder, how to do delete file after
     #sudo apt install ./$package -y
 done
 

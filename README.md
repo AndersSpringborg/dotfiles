@@ -18,22 +18,26 @@ Ethernet drive
 https://www.realtek.com/en/directly-download?downloadid=95f1076134d28cfcebcb49fc65a6811e
     
 ## Todo
-[] make --first-install argument
+[ ] make --first-install argument
 
-[] install docker
-[] Fix docker compose in install
+[ ] install docker
+[ ] Fix docker compose in install
 
 > sudo curl -L "https://github.com/docker/compose/releases/download/1.28.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-[] install xclip before ssh keygen
-[] ssh make rsa
-[] install chrome
-[] intsall code
-[] install toolbo
-[] spotify ask if i want to continu
-[] install the fuck -> the if else condition do not work
-[] install slack
-[] add guide for keyboard setup with typebooster
+[ ] install xclip before ssh keygen
+[ ] ssh make rsa
+[ ] install chrome
+[ ] intsall code
+[ ] install toolbo
+[ ] spotify ask if i want to continu
+[ ] install the fuck -> the if else condition do not work
+[ ] install slack
+[ ] add guide for keyboard setup with typebooster
 
-[] Add some documentation to print functions
+[ ] Add some documentation to print functions
+
+[ ] cli chenage gnome background to color
+    `gsettings set org.gnome.desktop.background picture-uri ''`
+    `gsettings set org.gnome.desktop.background primary-color '#606060'`
