@@ -13,6 +13,7 @@ list_of_apt_packages=(
     g++
     make
     libportaudio2
+    chrome-gnome-shell # For gnome extentions in chrome
     python3-venv
     chrome-gnome-shell
 )
