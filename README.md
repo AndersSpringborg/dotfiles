@@ -35,6 +35,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 [ ] install the fuck -> the if else condition do not work
 [ ] install slack
 [ ] add guide for keyboard setup with typebooster
+    - https://mike-fabian.github.io/ibus-typing-booster/documentation.html#adding-gnome
 
 [ ] Add some documentation to print functions
 
