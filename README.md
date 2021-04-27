@@ -47,6 +47,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 [ ] make into python script, to make a real CLI
 
+[ ] Linux mods
+- [ ] remove double press for ` sign
+
 [ ] Add some documentation to print functions
     logStatus
     logInfo
@@ -55,3 +58,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 [ ] cli chenage gnome background to color
     `gsettings set org.gnome.desktop.background picture-uri ''`
     `gsettings set org.gnome.desktop.background primary-color '#606060'`
+
+[ ] make gnome_customize file
+    - [ ] minimize applications on press
+
+[ ] dual boot option
+    - [ ] local time `timedatectl set-local-rtc 1 --adjust-system-clock`
