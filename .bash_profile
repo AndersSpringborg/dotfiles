@@ -20,8 +20,6 @@ for option in ${OPTIONS[@]}; do
 done;
 unset $OPTIONS;
 
-## FUCK support (github thefuck)
-eval "$(thefuck --alias)"
 
 # Add tab completion for many Bash commands
 if [ -f /etc/bash_completion ]; then

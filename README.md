@@ -11,8 +11,6 @@ Specs
     - Desktop envirorment: Gnome 3
     - Window manager: Mutter
     - Shell: Bash 5.0
-## packages included
-    - Thefuck link
 
 Ethernet drive 
 https://www.realtek.com/en/directly-download?downloadid=95f1076134d28cfcebcb49fc65a6811e
