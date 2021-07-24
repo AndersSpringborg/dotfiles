@@ -62,3 +62,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 [ ] dual boot option
     - [ ] local time `timedatectl set-local-rtc 1 --adjust-system-clock`
+
+[ ] move to window manager
+    - [ ] night ligt `redshift`
