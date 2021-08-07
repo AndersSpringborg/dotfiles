@@ -22,6 +22,13 @@ https://www.realtek.com/en/directly-download?downloadid=95f1076134d28cfcebcb49fc
 2. runs all `sh` script in the project
 3. calls the noew bash entrypoint (`source ~/.bash_profile;`)
 
+## Goal
+|key|value|
+|-|-|
+|shell|[fish](https://github.com/fish-shell/fish-shell)|
+|prompt|[starship](https://github.com/starship/starship)|
+|Window manager|[awesome](https://github.com/awesomeWM/awesome)|
+|terminal emulator|[kitty](https://github.com/kovidgoyal/kitty)|
 
 ## Todo
 [ ] make --first-install argument
