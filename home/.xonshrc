@@ -1,0 +1,3 @@
+# ~/.xonshrc
+
+execx($(starship init xonsh))
