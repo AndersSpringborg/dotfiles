@@ -65,3 +65,4 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 [ ] move to window manager
     - [ ] night ligt `redshift`
+[ ] add `ibus-deamon` -d to startup
