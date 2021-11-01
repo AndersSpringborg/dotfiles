@@ -609,3 +609,8 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+--
+--
+-- Autorun
+
+awful.spawn.once("xrandr --output DP-2 --mode 1920x1080 --rate 144.00 --output HDMI-0 --rotate right --right-of DP-2")
