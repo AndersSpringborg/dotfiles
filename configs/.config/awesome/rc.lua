@@ -322,7 +322,7 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey,  "Shift"  }, "Return", function () awful.spawn(browser) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey , "Control" }, "q", function () awful.spawn("i3lock -c 999999") end,
+    awful.key({ modkey , "Control" }, "q", function () awful.spawn.with_shell("i3lock -c 999999 & systemctl suspend") end,
               {description = "lock the screen", group = "awesome"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
