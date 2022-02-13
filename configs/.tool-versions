@@ -1,4 +1,8 @@
+yarn 1.22.17
+nodejs 16.13.1
+java adoptopenjdk-11.0.13+8
+
 kind 0.11.1
 haskell 8.10.7
 python 3.9.7
-
+dotnet 5.0.11
