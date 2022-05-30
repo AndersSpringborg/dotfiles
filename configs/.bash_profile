@@ -22,9 +22,13 @@ unset $OPTIONS;
 
 
 # Add tab completion for many Bash commands
+## bash global path
 if [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
 fi;
+## bash local
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+# bash end
 
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type _git &> /dev/null; then
@@ -35,8 +39,13 @@ fi;
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
 # asdf
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+# linux
+#. $HOME/.asdf/asdf.sh
+#. $HOME/.asdf/completions/asdf.bash
+
+# MAC w. brew
+  . /usr/local/opt/asdf/libexec/asdf.sh
+
 
 # dotnet
 #no data pls
@@ -64,3 +73,4 @@ if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integr
             unset -f __starship
 # end starship
 
+export PATH="/usr/local/opt/python@3.10/bin:$PATH"
