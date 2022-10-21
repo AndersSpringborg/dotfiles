@@ -47,8 +47,11 @@ alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
+# Get all open ports on this machine
+alias myports="sudo lsof -PiTCP -sTCP:LISTEN"
+
 # URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+alias urlencode='python -c "import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1]));"'
 
 # Merge PDF files, preserving hyperlinks
 # Usage: `mergepdf input{1,2,3}.pdf`
@@ -78,3 +81,11 @@ alias cb="xclip -i -selection clipboard"
 alias screenshare='vlc screen:// :screen-fps=30.000000 :live-caching=300 :screen-width=1920 :screen-height=1080 :screen-top=523'
 
 alias ssh="kitty +kitten ssh"
+
+alias dps="docker ps    --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}' | docker-color-output"
+alias dpa="docker ps -a --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}' | docker-color-output"
+
+##### MAC
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
