@@ -613,5 +613,44 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 --
 -- Autorun
 
+<<<<<<< HEAD
 -- awful.spawn.once("xrandr --output DP-2 --mode 1920x1080 --rate 144.00 --output HDMI-0 --rotate right --right-of DP-2")
 awful.spawn.once("redshift")
+=======
+awful.spawn.once("xrandr --output DP-2 --mode 1920x1080 --rate 144.00 --output HDMI-0 --rotate right --right-of DP-2")
+awful.spawn.once("redshift -l 57.04:9.944 -t 6500K:3500K -b 1:0.8")
+
+
+-- polkit
+--
+
+local run_once = function(cmd)
+    local debug_mode = true
+    local findme = cmd
+    local firstspace = cmd:find(' ')
+    if firstspace then
+        findme = cmd:sub(0, firstspace - 1)
+    end
+    awful.spawn.easy_async_with_shell(
+        string.format('pgrep -u $USER -x %s > /dev/null || (%s)', findme, cmd),
+        function(stdout, stderr)
+            -- Debugger 
+            --if not stderr or stderr == '' or not debug_mode then
+            --    return 
+            --end
+            naughty.notification({
+                app_name = 'Start-up Applications',
+                title = '<b>Oof! Error detected when starting an application!</b>',
+                message = stderr:gsub('%\n', ''),
+                timeout = 20,
+                icon = require('beautiful').awesome_icon
+            })
+        end
+    )
+end
+
+--polkit = '/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 & ' .. 'eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)'
+
+--run_once(polkit)
+
+>>>>>>> 7009a04 (redshift on startup awesome)
