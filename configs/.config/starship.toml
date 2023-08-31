@@ -5,3 +5,8 @@
 [[battery.display]]  # "bold red" style and discharging_symbol when capacity is between 0% and 10%
 threshold = 10
 
+[kubernetes]
+#format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+disabled = false
+[kubernetes.context_aliases]
+"aks-test-euwe-002" = "t"

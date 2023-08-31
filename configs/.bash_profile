@@ -46,7 +46,10 @@ fi;
 # MAC w. brew
   . /usr/local/opt/asdf/libexec/asdf.sh
 
+### kubectl
+source <(kubectl completion bash)
 
+############### END BASH COMPLETION ##############
 # dotnet
 #no data pls
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
@@ -67,10 +70,16 @@ if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integr
                     source <(/usr/local/bin/starship init bash --print-full-init)
                 else
                     source /dev/stdin <<<"$(/usr/local/bin/starship init bash --print-full-init)"
+echo 'source <(kubectl completion bash)' >>~/.bashrc
                 fi
             }
             __starship
             unset -f __starship
 # end starship
 
+source ~/.askcody_config
+#source ~/.ucsd_aws_config
+
 export PATH="/usr/local/opt/python@3.10/bin:$PATH"
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"

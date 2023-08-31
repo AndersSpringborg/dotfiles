@@ -89,3 +89,12 @@ alias dpa="docker ps -a --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}' | d
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Kubernetes
+alias k="kubectl"
+complete -F __start_kubectl k
+
+# neovim
+alias vim="nvim"
+alias vi="nvim"
+
